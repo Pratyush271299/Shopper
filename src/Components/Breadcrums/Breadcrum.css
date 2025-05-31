@@ -1,0 +1,90 @@
+/* Base Styles */
+.breadcrum {
+    width: 100%;
+    max-width: 1440px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.breadcrum-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #5e5e5e;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.breadcrum-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrum-link {
+    text-decoration: none;
+    color: #5e5e5e;
+    transition: color 0.2s ease;
+}
+
+.breadcrum-link:hover {
+    color: #ff4141;
+}
+
+.breadcrum-current {
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.breadcrum-arrow {
+    width: 8px;
+    height: 12px;
+    object-fit: contain;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .breadcrum {
+        padding: 0 40px;
+        margin: 40px auto;
+    }
+    
+    .breadcrum-list {
+        font-size: 15px;
+    }
+    
+    .breadcrum-current {
+        max-width: 300px;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .breadcrum {
+        padding: 0 80px;
+        margin: 60px auto;
+    }
+    
+    .breadcrum-list {
+        font-size: 16px;
+    }
+    
+    .breadcrum-current {
+        max-width: 400px;
+    }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1440px) {
+    .breadcrum {
+        padding: 0 170px;
+    }
+}

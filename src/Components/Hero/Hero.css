@@ -1,0 +1,160 @@
+/* Global fix for box-sizing */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  line-height: 1.1;
+  order: 2;
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-left h2 {
+  color: #090909;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.hero-left p {
+  color: #171717;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-hand-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-hand-icon img {
+  width: 50px;
+}
+
+.hero-latest-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 310px;
+  height: 60px;
+  border-radius: 75px;
+  margin-top: 20px;
+  background: #ff4141;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.hero-latest-btn:hover {
+  transform: scale(1.05);
+}
+
+.hero-link {
+  text-decoration: none;
+  color: white;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 1;
+  padding: 20px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    padding: 40px;
+  }
+
+  .hero-left {
+    padding: 0 clamp(40px, 8vw, 100px);
+    order: 1;
+  }
+
+  .hero-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-left p {
+    font-size: 4rem;
+  }
+
+  .hero-hand-icon img {
+    width: 70px;
+  }
+
+  .hero-latest-btn {
+    font-size: 1.3rem;
+    height: 70px;
+  }
+
+  .hero-right {
+    order: 2;
+  }
+
+  .hero-image {
+    max-width: 600px;
+  }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1024px) {
+  .hero-left {
+    padding: 0 clamp(60px, 10vw, 120px);
+  }
+
+  .hero-left h2 {
+    font-size: 2rem;
+  }
+
+  .hero-left p {
+    font-size: 5rem;
+  }
+
+  .hero-hand-icon img {
+    width: 105px;
+  }
+
+  .hero-latest-btn {
+    font-size: 1.5rem;
+    width: 310px;
+  }
+}

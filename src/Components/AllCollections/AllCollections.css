@@ -1,0 +1,85 @@
+.allcollections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.allcollections-header {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.allcollections h1 {
+    color: #171717;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.allcollections hr {
+    width: 150px;
+    height: 4px;
+    border-radius: 10px;
+    background: #252525;
+    margin: 0 auto;
+}
+
+.allcollections-items {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center; /* Added this line */
+    justify-items: center; /* Keeps individual items centered */
+    margin-left: auto; /* Ensures centering */
+    margin-right: auto; /* Ensures centering */
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .allcollections {
+        padding: 60px 40px;
+        gap: 30px;
+    }
+
+    .allcollections h1 {
+        font-size: 2.5rem;
+    }
+
+    .allcollections hr {
+        width: 200px;
+        height: 6px;
+    }
+
+    .allcollections-items {
+        gap: 30px;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .allcollections h1 {
+        font-size: 3rem;
+    }
+
+    .allcollections-items {
+        grid-template-columns: repeat(4, 1fr);
+        /* When using exact column count, auto-fit might not center properly */
+        /* So we explicitly set the columns and use justify-content */
+        justify-content: center;
+    }
+}
+
+/* For very large screens */
+@media (min-width: 1440px) {
+    .allcollections-item {
+        /* Optional: if you want to limit the maximum width */
+        max-width: 1300px;
+    }
+}

@@ -1,0 +1,139 @@
+.offers {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.offers-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    order: 2;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.offers-left h1 {
+    color: #171717;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 5px 0;
+    line-height: 1.2;
+}
+
+.offers-left p {
+    color: #171717;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.offers-link {
+    text-decoration: none;
+}
+
+.offers-left button {
+    width: 100%;
+    max-width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #ff4141;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 20px auto 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.offers-left button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 65, 65, 0.3);
+}
+
+.offers-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+    padding: 20px 0;
+}
+
+.offer-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .offers {
+        flex-direction: row;
+        padding: 40px;
+        min-height: 400px;
+    }
+
+    .offers-left {
+        order: 1;
+        text-align: left;
+        padding-right: 40px;
+    }
+
+    .offers-left h1 {
+        font-size: 2.2rem;
+    }
+
+    .offers-left p {
+        font-size: 1.3rem;
+    }
+
+    .offers-left button {
+        margin: 30px 0 0;
+        font-size: 1.2rem;
+        height: 65px;
+        max-width: 280px;
+    }
+
+    .offers-right {
+        order: 2;
+    }
+
+    .offer-image {
+        max-width: 350px;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .offers {
+        margin: 80px auto;
+        min-height: 60vh;
+    }
+
+    .offers-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .offers-left p {
+        font-size: 1.5rem;
+    }
+
+    .offers-left button {
+        height: 70px;
+        font-size: 1.3rem;
+    }
+
+    .offer-image {
+        max-width: 400px;
+    }
+}
