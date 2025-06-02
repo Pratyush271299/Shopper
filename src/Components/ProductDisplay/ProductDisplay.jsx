@@ -15,6 +15,7 @@ const ProductDisplay = (props) => {
 
     const handleSizeSelect = (size) => {
         setSelectedSize(size);
+        console.log(size);
     };
 
     return (
@@ -70,12 +71,12 @@ const ProductDisplay = (props) => {
                 <button 
                     onClick={() => {
                         if (!selectedSize) {
+                            console.log('seelcted size is empy');
                             alert('Please select a size first');
                             return;
                         }
-                        addToCart({...product, selectedSize});
+                        addToCart({...product}, selectedSize);
                     }}
-                    disabled={!selectedSize}
                 >
                     ADD TO CART
                 </button>

@@ -10,9 +10,11 @@ const AlsoCheckout = () => {
     const shuffledProducts = [...productsFromDB].sort(() => Math.random() - 0.5);
   return (
     <div className='alsocheckout'>
-      <h1>ALSO CHECKOUT!</h1>
-      <hr />
-      <div className="alsocheckout-items">
+      <div className='alsocheckout-header'>
+        <h1>ALSO CHECKOUT!</h1>
+        <hr />
+      </div>
+      <div className="alsocheckout-item">
         {shuffledProducts.slice(0, 16).map((item, i) => {
             return (<Item 
             key={i} 

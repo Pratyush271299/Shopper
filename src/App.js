@@ -19,6 +19,7 @@ import all_product from './Components/Assets/all_product';
 import { useContext, useEffect } from 'react';
 import { ShopContext } from './Context/ShopContext';
 import AdminPanel from './Pages/AdminPanel';
+import SearchedItems from './Pages/SearchedItems';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/signup' element={<LoginSignup/>} />
         <Route path='signin' element={<LoginSignIn/>} />
         <Route path='/admin' element={<AdminPanel/>} />
+        <Route path='/searchedItem' element={<SearchedItems />} />
       </Routes>
       <Footer />
       <ToastContainer position='top-center' autoClose={2000}/>

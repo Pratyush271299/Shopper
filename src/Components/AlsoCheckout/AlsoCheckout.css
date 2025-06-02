@@ -2,78 +2,84 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 50px;
-    padding: 0 20px;
+    gap: 20px;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.alsocheckout-header {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .alsocheckout h1 {
     color: #171717;
-    font-size: 2rem; /* Changed from fixed 50px */
+    font-size: 2rem;
     font-weight: 600;
-    text-align: center;
+    margin-bottom: 10px;
 }
 
 .alsocheckout hr {
-    width: 150px; /* Reduced from 200px for mobile */
-    height: 4px; /* Reduced from 6px for mobile */
+    width: 150px;
+    height: 4px;
     border-radius: 10px;
     background: #252525;
     margin: 0 auto;
 }
 
-.alsocheckout-items {
+.alsocheckout-item {
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Reduced from 30px for mobile */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     width: 100%;
     max-width: 1200px;
-    margin-top: 30px; /* Reduced from 50px for mobile */
-    padding: 0 20px;
-    justify-items: center;
+    justify-content: center; /* Added this line */
+    justify-items: center; /* Keeps individual items centered */
+    margin-left: auto; /* Ensures centering */
+    margin-right: auto; /* Ensures centering */
 }
 
-/* Tablet Styles (768px+) */
+/* Tablet Styles */
 @media (min-width: 768px) {
     .alsocheckout {
-        margin-bottom: 70px;
-        gap: 15px;
+        padding: 60px 40px;
+        gap: 30px;
     }
-    
+
     .alsocheckout h1 {
         font-size: 2.5rem;
     }
-    
+
     .alsocheckout hr {
         width: 200px;
         height: 6px;
     }
-    
-    .alsocheckout-items {
-        gap: 25px;
-        margin-top: 40px;
-    }
-}
 
-/* Desktop Styles (1024px+) */
-@media (min-width: 1024px) {
-    .alsocheckout {
-        margin-bottom: 100px;
-    }
-    
-    .alsocheckout h1 {
-        font-size: 3rem;
-    }
-    
-    .alsocheckout-items {
-        grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns on desktop */
+    .alsocheckout-item {
         gap: 30px;
     }
 }
 
-/* Large Desktop (1440px+) */
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .alsocheckout h1 {
+        font-size: 3rem;
+    }
+
+    .alsocheckout-item {
+        grid-template-columns: repeat(4, 1fr);
+        /* When using exact column count, auto-fit might not center properly */
+        /* So we explicitly set the columns and use justify-content */
+        justify-content: center;
+    }
+}
+
+/* For very large screens */
 @media (min-width: 1440px) {
-    .alsocheckout-items {
+    .alsocheckout-item {
+        /* Optional: if you want to limit the maximum width */
         max-width: 1300px;
     }
 }

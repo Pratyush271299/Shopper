@@ -5,6 +5,7 @@ import admin_logo from '../Assets/admin_logo.jpg';
 import cart_icon from '../Assets/cart_icon.png';
 import { Link, useLocation } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const { 
@@ -23,6 +24,9 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
     const isAdmin = JSON.parse(localStorage.getItem('currentUser'))?.email === 'pratyush@gmail.com';
+    const [searchInput, setSearchInput] = useState("");
+
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         setIsLogin(false);
@@ -46,11 +50,21 @@ const Navbar = () => {
     };
 
     // Close mobile menu when clicking on cart or any navigation action
-    const handleMobileAction = () => {
+    const handleMobileAction = (e) => {
         if (isMobileView) {
             setIsMobileMenuOpen(false);
         }
     };
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setSearchInput(value);
+        navigate(`/searchedItem?query=${encodeURIComponent(value)}`);
+
+        if (value === "") {
+            navigate('/');
+        }
+    }
 
     useEffect(() => {
         const handleResize = () => {
@@ -92,6 +106,12 @@ const Navbar = () => {
             )}
             
             <div className={`nav-content ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}>
+                <input 
+                    className='search-box'
+                    type="text" 
+                    placeholder='Search Item'
+                    value={searchInput}
+                    onChange={(e) => handleInputChange(e)}/>
                 <ul className="nav-menu">
                     <li onClick={() => handleMenuClick('home')}>
                         <Link to='/' className={menu === 'home' ? 'active' : ''}>Home</Link>

@@ -87,15 +87,18 @@ const ShopContextProvider = (props) => {
         setLoaclCart();
     }, []);
 
-    const AddProductToCart = async (product, updatedCart) => {
+    const AddProductToCart = async (product, updatedCart, selectedSize) => {
         const quantity = updatedCart[product.id];
 
         const user = JSON.parse(localStorage.getItem("currentUser"));
+
+        console.log(selectedSize);
 
         const createPayload = {
             imageUrl: product.imageUrl,
             title: product.title,
             price: product.newPrice,
+            size: selectedSize,
             quantity: quantity,
             total: product.newPrice * quantity,
             userId: user.id,
@@ -105,6 +108,7 @@ const ShopContextProvider = (props) => {
         const updatePayload = {
             userId: user.id,
             allProductId: product.id,
+            size: selectedSize,
             quantity: quantity,
             total: product.newPrice * quantity
         };
@@ -159,7 +163,7 @@ const ShopContextProvider = (props) => {
 
     }
 
-    const RemoveProductFromCart = async (product, updatedCart) => {
+    const RemoveProductFromCart = async (product, updatedCart, size) => {
         const quantity = updatedCart[product.allProductId];
 
         const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -167,6 +171,7 @@ const ShopContextProvider = (props) => {
         const payload = {
             userId: user.id,
             allProductId: product.allProductId,
+            size,
             quantity: quantity,
             total: product.price * quantity
         }
@@ -238,7 +243,8 @@ const ShopContextProvider = (props) => {
             }
         }
 
-    const addToCart = async (product) => {
+    const addToCart = async (product, selectedSize) => {
+        console.log(selectedSize)
         const updatedCart = {
             ...cartItems, 
             [product.id]: (cartItems[product.id] || 0) + 1,
@@ -247,7 +253,7 @@ const ShopContextProvider = (props) => {
         setCartItems(updatedCart);
         localStorage.setItem('cartItems', JSON.stringify(updatedCart));
         
-        await AddProductToCart(product, updatedCart);
+        await AddProductToCart(product, updatedCart, selectedSize);
 
         const fetchedProducts = await fetchCartItems();
 
@@ -256,7 +262,7 @@ const ShopContextProvider = (props) => {
         setDiscountedTotal(getTotalCartAmount() - discount);
     } 
 
-    const removeFromCart = async (product) => {
+    const removeFromCart = async (product, size) => {
         console.log(cartItems)
         const updatedCart = {
             ...cartItems,
@@ -266,7 +272,7 @@ const ShopContextProvider = (props) => {
         setCartItems(updatedCart);
         localStorage.setItem('cartItems',JSON.stringify(updatedCart));
 
-        await RemoveProductFromCart(product, updatedCart);
+        await RemoveProductFromCart(product, updatedCart, size);
 
         const fetchedProducts = await fetchCartItems();
 

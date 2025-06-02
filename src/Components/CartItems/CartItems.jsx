@@ -93,6 +93,7 @@ const CartItems = () => {
                 <p>Products</p>
                 <p>Title</p>
                 <p>Price</p>
+                <p>Size</p>
                 <p>Quantity</p>
                 <p>Total</p>
                 <p>Remove</p>
@@ -105,9 +106,10 @@ const CartItems = () => {
                                 <img src={e.imageUrl} alt="" className='carticon-product-icon' />
                                 <p>{e.title}</p>
                                 <p>${e.price}</p>
+                                <p>{e.size}</p>
                                 <button className='cartitems-quantity'>{e.quantity}</button>
                                 <p>${e.price * e.quantity}</p>
-                                <img className='cartitems-remove-icon' src={remove_icon} onClick={() => removeFromCart(e)} alt="" />
+                                <img className='cartitems-remove-icon' src={remove_icon} onClick={() => removeFromCart(e, e.size)} alt="" />
                             </div>
                             <hr />
                         </div>
